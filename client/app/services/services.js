@@ -6,7 +6,7 @@ angular.module('shortly.services', [])
       url: '/api/links'
     })
     .then(function (resp) {
-      console.log("response here", resp.data);
+      console.log("route response", resp.data);
       return resp.data;
     });    // body...
   };
@@ -17,8 +17,9 @@ angular.module('shortly.services', [])
       url: '/api/links',
       data: http
     })
-    .then(function (resp) {    
-      return resp;
+    .then(function (resp) { 
+      console.log("response", resp);   
+      return resp.data;
     });
   };
 
@@ -42,6 +43,7 @@ angular.module('shortly.services', [])
       data: user
     })
     .then(function (resp) {
+      console.log(resp.data.token);
       return resp.data.token;
     });
   };
