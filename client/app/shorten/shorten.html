@@ -1,4 +1,4 @@
-<div id='container' ng-controller="ShortenController">
+<div id='container'>
   <div class='navigation'>
     <ul>
       <li><a href='#/links' class='index'>All Links</a></li>
@@ -7,10 +7,14 @@
     </ul>
 
   </div>
-
-  <input ng-model="link.url"/>
-  <button ng-click="addLink()">Add Links</button>
-  <div>{{ slink }}</div>  
+  <form name="shortenForm" ng-controller="ShortenController">
+    
+    <input type="url" ng-model="link.url" required>
+    <button ng-click="addLink(shortenForm.$valid)">Add Links</button>
+    <div>{{ slink }}</div>
+    <!--<div>Test validation: {{ shortenForm.$valid }}</div>-->
+    <div>{{error}}</div>
+  </form>
 
 <!-- Your code here -->
 
