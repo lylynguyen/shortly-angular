@@ -8,9 +8,12 @@
     </ul>
 
   </div>
+  <label>
+    Search by Any: <input ng-model="search.$"></label>
+
   <div id='container'></div>
     <ul>
-      <li ng-repeat="link in data.links">{{ link }}</li>
+      <li ng-repeat="link in data.links | orderBy: '-visits' | filter:search">{{ link }}</li>
     </ul>
 
 </div>
